@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+	<display-name>AskRedBull</display-name>
+
+	<listener>
+		<listener-class>org.pke854.redbull.runtime.RuntimeServletContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<description>Handles get nlu (interpret)</description>
+		<display-name>NLUServlet</display-name>
+		<servlet-name>NLUServlet</servlet-name>
+		<servlet-class>org.pke854.redbull.runtime.nlu.NLUServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<description>Handles listento</description>
+		<display-name>ListenToServlet</display-name>
+		<servlet-name>ListenToServlet</servlet-name>
+		<servlet-class>org.pke854.redbull.runtime.nlu.ListenToServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<description>Handles get update </description>
+		<display-name>GetUpdateServlet</display-name>
+		<servlet-name>GetUpdateServlet</servlet-name>
+		<servlet-class>org.pke854.redbull.runtime.update.GetUpdateServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<description>Handles put update </description>
+		<display-name>PutUpdateServlet</display-name>
+		<servlet-name>PutUpdateServlet</servlet-name>
+		<servlet-class>org.pke854.redbull.runtime.update.PutUpdateServlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>NLUServlet</servlet-name>
+		<url-pattern>/interpret</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>GetUpdateServlet</servlet-name>
+		<url-pattern>/getupdate</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>PutUpdateServlet</servlet-name>
+		<url-pattern>/putupdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ListenToServlet</servlet-name>
+		<url-pattern>/listento</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>frontend/monitor.html</welcome-file>
+	</welcome-file-list>
+
+
+</web-app>

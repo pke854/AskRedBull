@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>MONITOR</title>
+
+<link rel="stylesheet" href="/AskRedBull/frontend/css/wrapper.css" />
+<script  type="text/javascript">
+function playVideo(num) {
+	var sW = window.screen.width;
+	var sH = window.screen.height;
+	var videoDiv = document.getElementById("video_player");
+	//var playButt = document.getElementById("playButt");
+	//playButt.style.visibility = "invisible";
+	//http://www.youtube.com/embed/KoqZFhsk63c?html5=1
+	videoDiv.innerHTML = "<iframe class=\"yt\" type=\"text/html\" width=\""+sW+"\" height=\""+sH+"\""+
+	"src=\"http://www.youtube.com/embed/"+ytvList[num].id+"?html5=1&autoplay=1&controls=0&showinfo=0&enablejsapi=1&autohide=1&fs=1\" frameborder=\"0\">"
+			+ "</iframe>";
+	fullscreen(true);
+	setTimeout(function() {
+		stopVideo();
+	}, 60000);
+}
+
+var player;
+
+function onYouTubeIframeAPIReady() {
+	console.log("onYouTubeIframeAPIReady...");
+	player = new YT.Player('player', {
+		//height: '390',
+		//width: '640',
+		//videoId: 'M7lc1UVf-VE',
+		events : {
+			'onReady' : onPlayerReady,
+			'onStateChange' : onPlayerStateChange
+		}
+	});
+}
+
+function onPlayerReady() {
+	console.log("player is ready.");
+}
+
+function onPlayerStateChange(state) {
+	console.log("player state change: "+state);
+}
+
+function pauseVideo() {
+}
+
+function stopVideo() {
+	if (this['player'] && this.player["stopVideo"]){
+		player.stopVideo();
+		console.log("player stopped.");
+	}else
+		console.log("no player found...");
+	var videoDiv = document.getElementById("video_player");
+	//var playButt = document.getElementById("playButt");
+	//playButt.style.visibility = "visible";
+	
+	videoDiv.innerHTML = "<iframe type=\"text/html\" width=\"0\" height=\"0\" "+
+	"src=\"\" frameborder=\"0\">"+ "</iframe>";
+	
+	fullscreen(false);
+	//videoDiv.style.visibility = "invisible";
+}
+
+function fullscreen(switchOn) {
+	var element = document.documentElement;
+	if (switchOn) {
+		
+	}
+}
+</script>
+<script src="/AskRedBull/jquery/jquery.min.js"></script>
+<script src="/AskRedBull/frontend/js/chrome.speech.recognition.js"></script>
+<script src="/AskRedBull/frontend/js/tts.js"></script>
+<script src="/AskRedBull/frontend/js/monitor.js"></script>
+<script src="/AskRedBull/frontend/js/update.js"></script>
+<script src="/AskRedBull/frontend/js/view.js"></script>
+<script src="/AskRedBull/frontend/js/model.js"></script>
+<script src="/AskRedBull/frontend/js/redbull.js"></script>
+<script src="/AskRedBull/frontend/js/output.generation.js"></script>
+
+
+
+</head>
+<body>
+	<div id="video_player"></div>
+	<div id="wrapper" class="resizable">
+		<div id="control" class="resizable">
+			<img id="mic" src="/AskRedBull/frontend/img/microphone_ico.png" onmouseover="switchVisibility('txtUtt');"/>
+			<div id="mPromptUtterance" class="resizable">
+				<div id="utterance" class="triangle-border left">UTTERANCE</div>
+				<div id ="prompt" class="triangle-border right">PROMPT</div>
+			</div>
+			
+		</div>
+		<input id="txtUtt" class="resizable" type="text" size="50"
+					onchange="textInput(this)" />
+		<div id="monitor" class="resizable"></div>
+		
+	</div>
+	
+</body>
+</html>

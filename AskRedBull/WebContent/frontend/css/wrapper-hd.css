@@ -1,0 +1,397 @@
+html, body {
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	margin: 0px
+}
+
+.resizable {
+	height: 1px;
+	width: 1px;
+}
+
+/* ============================================================================================================================
+== BUBBLE WITH A BORDER AND TRIANGLE
+** ============================================================================================================================ */
+
+/* THE SPEECH BUBBLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border {
+  position:relative;
+  padding:5px;
+  margin:1em 0 3em;
+  border:3px solid white;
+  color:white;
+  background:transparent;
+  width:45%;
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-border.left {
+  margin-left:30px;
+  float:left;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-border.right {
+  margin-right:30px;
+  float:right;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border:before {
+  content:"";
+  position:absolute;
+  bottom:-20px; /* value = - border-top-width - border-bottom-width */
+  left:40px; /* controls horizontal position */
+  border-width:20px 20px 0;
+  border-style:solid;
+  border-color:white transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+
+/* creates the smaller  triangle */
+.triangle-border:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:white transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+/* Variant : left
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.left:before {
+  top:1px; /* controls vertical position */
+  bottom:auto;
+  left:-30px; /* value = - border-left-width - border-right-width */
+  border-width:15px 30px 15px 0;
+  border-color:transparent white;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.left:after {
+  top:9px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  left:-21px; /* value = - border-left-width - border-right-width */
+  border-width:9px 21px 9px 0;
+  border-color:transparent white;
+}
+/* Variant : right
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.right:before {
+  top:1px; /* controls vertical position */
+  bottom:auto;
+  left:auto;
+  right:-30px; /* value = - border-left-width - border-right-width */
+  border-width:15px 0 15px 30px;
+  border-color:transparent white;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.right:after {
+  top:9px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+  bottom:auto;
+  left:auto;
+  right:-21px; /* value = - border-left-width - border-right-width */
+  border-width:9px 0 9px 21px;
+  border-color:transparent white;
+}
+
+
+.triangle-border.show {
+	-webkit-animation-play-state: paused; /* Safari and Chrome */
+	-moz-animation-play-state: paused;
+	-o-animation-play-state: paused;
+	animation-play-state: paused;
+	transition: opacity 1000ms;
+	opacity: 0;
+}
+
+.triangle-border.hide {
+	-webkit-animation-play-state: paused; /* Safari and Chrome */
+	-moz-animation-play-state: paused;
+	-o-animation-play-state: paused;
+	animation-play-state: paused;
+	transition: opacity 1000ms;
+	opacity: 1;
+}
+
+#wrapper {
+	height: 1080px;
+	width: 1920px;
+	background-color: black;
+	color: white;
+	font-size: 18px;
+}
+
+#control {
+	position: relative;
+	height: 77px;
+	width: 100%;
+
+}
+
+#monitor {
+	#height: 653px;
+	height: 918px;
+	#width: 1024px;
+	width: 1920px;
+}
+
+#depiction {
+	#height: 490px;
+	height: 689px;
+	width: 30%;
+	#width: 307px;
+	display: table-cell;
+	margin-left: auto;
+    margin-right: auto;
+	float:left;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#details {
+	#max-height: 490px;
+	max-height: 689px;
+	#height: 490px;
+	height: 689px;
+	width: 65%;
+	overflow:hidden;
+    overflow-y:hidden;
+	display: table-cell;
+	margin-left: auto;
+    margin-right: auto;
+    font-family: Sans-serif;
+	font-size: 18px;
+	float:left;
+	background: transparent;
+}
+#see_also {
+	#height: 201px;
+	height: 283px;
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+	float:left;
+	background: transparent;
+	color: yellow;
+}
+.resizable.see_also_head{
+	#height: 40px;
+	height: 56px;
+	#width: 255px;
+	width: 478px;
+	background: transparent;
+	font-family: Sans-serif;
+	font-size: 15px;
+	text-align: center;
+
+}
+.resizable.see_also_cell{
+	#height: 201px;
+	height: 283px;
+	width: 20%;
+	display: table-cell;
+	margin-left: auto;
+    margin-right: auto;
+	float:left;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+}
+.resizable.see_also_image{
+	#height: 161px;
+	height: 226px;
+	#width: 255px;
+	width: 478px;
+	display: table-cell;
+	margin-left: auto;
+    margin-right: auto;
+	background: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+}
+.resizable.see_also_num{
+	margin-top: 0px;
+	margin-left: 0px;
+	font-family: Sans-serif;
+	font-size: 40px;
+	color:  #D3D3D3;
+	background: transparent;
+	position: relative;
+	z-index: 1;
+}
+.resizable.details_image{
+	#height: 490px;
+	height: 689px;
+	#width: 307px;
+	width: 574px;
+	display: table-cell;
+	margin-left: auto;
+    margin-right: auto;
+	float:left;
+	background-image: url('/EF-runtime/frontend/img/ef.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+#mPromptUtterance {
+	#height: 77px;
+	height: 108px;
+	#width: 900px;
+	width: 1688px;
+	float: left;
+	background: black;
+}
+
+#prompt{
+	visibility: hidden;
+}
+
+#utterance{
+	visibility: hidden;
+}
+
+#mInput {
+	#height: 77px;
+	height: 108px;
+	#width: 255px;
+	width: 478px;
+	float: left;
+	background-color: black;
+}
+
+#txtUtt {
+	#height: 38px;
+	height: 53px;
+	#width: 174px;
+	width: 326px;
+	vertical-align: middle;
+	background-color: gray;
+	border: 0px solid;
+	color: white;
+	outline: 0;
+	visibility: hidden;
+	position: absolute;
+    left: 700px;
+	#left: 1312px;
+    #top: 30px;
+	top: 42px;
+    z-index: 1;
+}
+
+#mic {
+	#margin: 10px;
+	margin: 14px;
+	#height: 57px;
+	height: 80px;
+	width: auto;
+	float: left;
+	display: table-row;
+	background: black;
+}
+#ef {
+	#margin: 10px;
+	margin: 14px;
+	#height: 57px;
+	height: 80px;
+	width: auto;
+	float: left;
+	display: table-row;
+	background: black;
+	
+}
+
+@-webkit-keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+		opacity: 0;
+    }
+
+}
+
+.blinking {
+	-webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-timing-function: ease-in-out;
+    
+-moz-animation-direction: normal;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-name: blink;
+    -moz-animation-timing-function: ease-in-out;    
+}
+
+@-webkit-keyframes scaleOnClick {
+    0%, 100% {
+        transform:  scale(1);
+    }
+    50% {
+         transform:  scale(0.7);
+    }
+}
+@-moz-keyframes scaleOnClick {
+    0%, 100% {
+        transform:  scale(1);
+    }
+    50% {
+         transform:  scale(0.7);
+    }
+}
+
+.clicking {
+	-webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: scaleOnClick;
+    -webkit-animation-timing-function: ease-in-out;
+    
+-moz-animation-direction: normal;
+    -moz-animation-duration: 400ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-name: scaleOnClick;
+    -moz-animation-timing-function: ease-in-out;    
+}

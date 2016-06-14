@@ -1,0 +1,81 @@
+<html>
+<head>
+<script src="/AskRedBull/frontend/js/chrome.speech.recognition.js"></script>
+
+<style>
+@media all {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%; 
+}
+
+table, td, th {
+	border: 0px solid white;
+	padding: 3px;
+	background-color: black;
+	color: white;
+	font: 25px arial, sans-serif;
+}
+
+#mUtterance {
+    text-align: left;
+    background-color: black;
+	color: white;
+	font: 25px arial, sans-serif;
+}
+#mPrompt {
+    text-align: left;
+    background-color: black;
+	color: white;
+	font: 25px arial, sans-serif;
+}
+#txtUtt {
+    text-align: left;
+    background-color: black;
+	color: white;
+	font: 25px arial, sans-serif;
+}
+
+img {
+	height: 40px;
+	width: auto;
+}
+</style>
+</head>
+<body>
+	<table width="100%">
+		<tr>
+			<td width="70%" height="100%">
+				<table height="100%" width="100%">
+					<tr>
+						<td height="100%"><div id="mUtterance"></div></td>
+					</tr>
+					<tr>
+						<td height="100%"><div id="mPrompt"></div></td>
+					</tr>
+				</table>
+			</td>
+			<td height="100%" width="30%"><div class="right">
+				<table><tr><td>
+				<input id="txtUtt" type="text" size="50" onchange="top.interpret(this.value);this.value='';" style="vertical-align: top;"/>
+				</td>
+				<td>
+					<button id="start_button" onclick="startButton(event)">
+						<img id="start_img" src="images/mic.gif" alt="Start">
+					</button>
+				</td>
+				</tr>
+				</table>
+				</div></td>
+		</tr>
+	</table>
+	<script>
+	initSpeechRecognition();
+	</script>
+</body>
+</html>

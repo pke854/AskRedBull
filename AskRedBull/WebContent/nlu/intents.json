@@ -1,0 +1,16 @@
+[
+	{"help" : 		["help\\b"]},
+	{"hello" : 		["(hello\\b)|(hi\\b)"]},
+	{"welcome" : 	["thanks?"]},
+	{"overview" : 	["overview"]},
+	{"stopVideo" : 	["stop( the)?( video)?"]},
+	{"playVideoNumber" : 	["play (the )?(video )?number (?<num>(\\d|((?<1>one)|(?<2>two)|(?<3>three)|(?<4>four)|(?<5>five))))( please)?"]},
+  {"suggest" : ["\\b((suggest)|(recommend)) me\\b", "recommendations?"]},
+  {"myname" : ["what((')|( i))s your name\\b"]},
+  {"setMyName" : ["your name ((is)|(will be)) (?<aname>[\\w|\\s]+)\\b"]},
+  {"repeat" : ["\\brepeat\\b"]},
+  {"show_next_events" : ["\\b(future|next) .*event(s)?\\b"]},
+  {"show_past_events" : ["\\b(past|last) .*?event(s)?\\b"]},
+  {"show_channel_events" : ["\\b(?<chan>adventure|bike|cricket|esports|games|motorsports|music|skate|snow|surf) .*?event(s)?\\b"]},
+  {"list_item_number" : ["\\bnumber (?<num>\\d\\d?)\\b"]}
+]
